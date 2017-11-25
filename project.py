@@ -59,7 +59,7 @@ def nVidiaModel():
 	model.add(Dense(1))
 	return model
 
-def train(model, input, output, modelFile, epochs = 3):
+def train(model, input, output, modelFile, epochs = 10):
 	#train model
 	model.compile(loss='mse', optimizer = 'adam')
 	model.fit(input, output, validation_split=0.2, shuffle=True,nb_epoch=epochs)
@@ -73,5 +73,5 @@ x, y = extractimages('../data', skipHeader=True)
 model = nVidiaModel()
 print('Training model')
 #Train  model
-train(model, x, y, 'model.h5')
+train(model, x, y, 'newModel.h5')
 print('Ending')
